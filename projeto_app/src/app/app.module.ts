@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginProvider } from '../providers/login/login';
 import { ApiLoginProvider } from '../providers/api-login/api-login';
+import { ListaOsProvider } from '../providers/lista-os/lista-os';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ApiLoginProvider } from '../providers/api-login/api-login';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider,
-    ApiLoginProvider
+    ApiLoginProvider,
+    ListaOsProvider
   ]
 })
 export class AppModule {}
