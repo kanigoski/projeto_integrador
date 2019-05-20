@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
+//import { Toasted } from '../../providers/toast/toast';
+import { LoginProvider } from '../../providers/login/login';
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -15,11 +9,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user:string;
+  passowrd:string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private logon : LoginProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  openModalRegister() {
+
+  }
+
+  login(){
+    this.logon.singIn(this.user, this.passowrd).subscribe(
+      (data : any) => {
+        if(data.response === 200) {
+          alert(`Usuário: ${data.userName} logado com sucesso!`);
+        } else {
+          alert(data.message);
+        }
+      },
+    )
+  };
 }

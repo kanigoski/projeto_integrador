@@ -9,30 +9,37 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginProvider } from '../providers/login/login';
-import { ApiLoginProvider } from '../providers/api-login/api-login';
+import { HttpProvider } from '../providers/http/http';
+import { LoginPage } from '../pages/login/login';
+import { HttpModule } from '@angular/http';
+//import { ToastProvider } from '../providers/toast/toast';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider,
-    ApiLoginProvider
+    HttpProvider,
+    //ToastProvider
   ]
 })
 export class AppModule {}
