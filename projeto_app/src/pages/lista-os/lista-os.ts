@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { ListaOsProvider } from '../../providers/lista-os/lista-os'
 /**
  * Generated class for the ListaOsPage page.
  *
@@ -15,11 +15,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ListaOsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public listOS: ListaOsProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ListaOsPage');
+    this.getServiceOrder();
   }
 
+  getServiceOrder() {
+    this.logon.singIn(this.user, this.password).subscribe(
+      (data : any) => {
+        console.log('Data', data);
+        if(data.status === 200 && data.results.length > 0) {
+          this.navCtrl.push(ListaOsPage);
+        } else {
+          alert('deu ruim')
+          alert(data.message);
+        }
+      },
+    )
+  }
 }
