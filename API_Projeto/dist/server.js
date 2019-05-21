@@ -13,6 +13,7 @@ var port = 3000;
 app.post('/login', function (req, res) {
     var user = req.body.user;
     var password = req.body.password;
+    console.log(res);
     try {
         conexao.getUser(res, user, password);
     }

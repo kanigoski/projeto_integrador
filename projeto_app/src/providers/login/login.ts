@@ -17,13 +17,14 @@ export class LoginProvider {
   constructor( public httpProvider : HttpProvider) {
     console.log('Hello LoginProvider Provider');
   }
-  public singIn(userName: string, password: string){
+  public singIn(user: string, password: string){
     let obj =  {
-      userName : userName,
+      user : user,
       password : password,
     };
 
-    this.httpProvider.url = 'http://localhost:3000/logon';
+    this.httpProvider.url = 'http://localhost:3000/login';
+    alert(obj);
     return this.httpProvider.post(obj);
   }
 

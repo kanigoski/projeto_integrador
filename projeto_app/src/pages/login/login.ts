@@ -26,9 +26,11 @@ export class LoginPage {
   login(){
     this.logon.singIn(this.user, this.passowrd).subscribe(
       (data : any) => {
+        console.log(data);
         if(data.response === 200) {
           alert(`Usuário: ${data.userName} logado com sucesso!`);
         } else {
+          alert('deu ruim')
           alert(data.message);
         }
       },

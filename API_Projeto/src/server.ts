@@ -16,8 +16,8 @@ const port: number = 3000;
 
 app.post('/login', (req: any, res: any) => {
     const user = req.body.user;
-    const password = req.body.password;
-
+    const password = req.body.password; 
+    
     try {
         conexao.getUser(res, user, password);
     } catch (error) {
