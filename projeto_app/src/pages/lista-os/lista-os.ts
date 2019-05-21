@@ -29,7 +29,7 @@ export class ListaOsPage {
         if(data.status === 200 && data.results.length > 0) {
           this.navCtrl.push(ListaOsPage);
         } else {
-          alert('deu ruim')
+          alert('Usu[ario ou senha incorreto!')
           alert(data.message);
         }
       },
