@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 //import { Toasted } from '../../providers/toast/toast';
 import { LoginProvider } from '../../providers/login/login';
+import { ListaOsPage } from '../lista-os/lista-os';
+
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -28,7 +30,7 @@ export class LoginPage {
       (data : any) => {
         console.log('Data', data);
         if(data.status === 200 && data.results.length > 0) {
-          alert(`Usuário: ${this.user} logado com sucesso!`);
+          this.navCtrl.push(ListaOsPage);
         } else {
           alert('deu ruim')
           alert(data.message);

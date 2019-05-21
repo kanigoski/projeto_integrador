@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginProvider } from '../providers/login/login';
 import { HttpProvider } from '../providers/http/http';
 import { LoginPage } from '../pages/login/login';
+import { ListaOsPage } from '../pages/lista-os/lista-os';
 import { HttpModule } from '@angular/http';
 //import { ToastProvider } from '../providers/toast/toast';
 
@@ -19,7 +20,8 @@ import { HttpModule } from '@angular/http';
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    LoginPage,
+    ListaOsPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { HttpModule } from '@angular/http';
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    LoginPage,
+    ListaOsPage
   ],
   providers: [
     StatusBar,
