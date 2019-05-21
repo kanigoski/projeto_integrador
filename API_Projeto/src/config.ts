@@ -37,9 +37,15 @@ class Conexao {
 
         connection.query(sqlQuery, function(error: any, results: any, fields: any){
             if(error) {
-                res.json(error);
+                res.json({
+                    status: 500,
+                    error: error
+                });
             } else {
-                res.json(results);
+                res.json({
+                    status: 200,
+                    results: results
+                });
                 connection.end();
             }
         });
@@ -66,8 +72,8 @@ class Conexao {
                 usuario AS user,
                 senha AS password
             FROM login 
-            WHERE usuario = ${user} 
-            AND senha = ${password}`, res);
+            WHERE usuario = '${user}' 
+            AND senha = '${password}'`, res);
     };
 }
 

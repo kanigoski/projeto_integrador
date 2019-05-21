@@ -31,10 +31,16 @@ var Conexao = /** @class */ (function () {
         });
         connection.query(sqlQuery, function (error, results, fields) {
             if (error) {
-                res.json(error);
+                res.json({
+                    status: 500,
+                    error: error
+                });
             }
             else {
-                res.json(results);
+                res.json({
+                    status: 200,
+                    results: results
+                });
                 connection.end();
             }
         });
@@ -48,7 +54,7 @@ var Conexao = /** @class */ (function () {
     };
     ;
     Conexao.prototype.getUser = function (res, user, password) {
-        return this.execSQLQuery("\n            SELECT\n                usuario AS user,\n                senha AS password\n            FROM login \n            WHERE usuario = " + user + " \n            AND senha = " + password, res);
+        return this.execSQLQuery("\n            SELECT\n                usuario AS user,\n                senha AS password\n            FROM login \n            WHERE usuario = '" + user + "' \n            AND senha = '" + password + "'", res);
     };
     ;
     return Conexao;

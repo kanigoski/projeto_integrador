@@ -10,7 +10,7 @@ import { LoginProvider } from '../../providers/login/login';
 export class LoginPage {
 
   user:string;
-  passowrd:string;
+  password:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private logon : LoginProvider) {
   }
@@ -24,11 +24,11 @@ export class LoginPage {
   }
 
   login(){
-    this.logon.singIn(this.user, this.passowrd).subscribe(
+    this.logon.singIn(this.user, this.password).subscribe(
       (data : any) => {
-        console.log(this.user, this.passowrd);
-        if(data.response === 200) {
-          alert(`Usuário: ${data.userName} logado com sucesso!`);
+        console.log('Data', data);
+        if(data.status === 200 && data.results.length > 0) {
+          alert(`Usuário: ${this.user} logado com sucesso!`);
         } else {
           alert('deu ruim')
           alert(data.message);

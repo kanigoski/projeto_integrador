@@ -11,9 +11,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extend: true }));
 var port = 3000;
 app.post('/login', function (req, res) {
+    console.log('Req', req);
     var user = req.body.user;
     var password = req.body.password;
-    console.log(res);
     try {
         conexao.getUser(res, user, password);
     }

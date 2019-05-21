@@ -24,7 +24,6 @@ export class LoginProvider {
     };
 
     this.httpProvider.url = 'http://localhost:3000/login';
-    alert(obj);
     return this.httpProvider.post(obj);
   }
 
