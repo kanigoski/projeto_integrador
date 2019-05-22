@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ListaOsProvider } from '../../providers/lista-os/lista-os'
+import { ListaOsProvider } from '../../providers/lista-os/lista-os';
+import { ModalController, Platform, ViewController } from 'ionic-angular';
+import { ModalOsPage } from '../modal-os/modal-os';
 /**
  * Generated class for the ListaOsPage page.
  *
@@ -15,22 +17,34 @@ import { ListaOsProvider } from '../../providers/lista-os/lista-os'
 })
 export class ListaOsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public listOS: ListaOsProvider) {
+  listOrderService: any[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public listOS: ListaOsProvider,public modalCtrl: ModalController) {
   }
+
+  openModal() {
+
+    let profileModal = this.modalCtrl.create(ModalOsPage);
+    profileModal.present();
+
+    profileModal.onDidDismiss(data => {  
+      console.log(data);
+    });
+  }
+
 
   ionViewDidLoad() {
     this.getServiceOrder();
   }
 
   getServiceOrder() {
-    this.logon.singIn(this.user, this.password).subscribe(
+    this.listOS.getServicesOrder().subscribe(
       (data : any) => {
-        console.log('Data', data);
+        console.log('Data', data.results);
         if(data.status === 200 && data.results.length > 0) {
-          this.navCtrl.push(ListaOsPage);
+          this.listOrderService = data.results;
         } else {
-          alert('Usu[ario ou senha incorreto!')
-          alert(data.message);
+
         }
       },
     )

@@ -12,6 +12,8 @@ import { LoginProvider } from '../providers/login/login';
 import { HttpProvider } from '../providers/http/http';
 import { LoginPage } from '../pages/login/login';
 import { ListaOsPage } from '../pages/lista-os/lista-os';
+import { ModalOsPage } from '../pages/modal-os/modal-os';
+import { ListaOsProvider } from '../providers/lista-os/lista-os';
 import { HttpModule } from '@angular/http';
 //import { ToastProvider } from '../providers/toast/toast';
 
@@ -21,7 +23,8 @@ import { HttpModule } from '@angular/http';
     HomePage,
     ListPage,
     LoginPage,
-    ListaOsPage
+    ListaOsPage,
+    ModalOsPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { HttpModule } from '@angular/http';
     HomePage,
     ListPage,
     LoginPage,
-    ListaOsPage
+    ListaOsPage,
+    ModalOsPage
   ],
   providers: [
     StatusBar,
@@ -42,7 +46,7 @@ import { HttpModule } from '@angular/http';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider,
     HttpProvider,
-    //ToastProvider
+    ListaOsProvider
   ]
 })
 export class AppModule {}
