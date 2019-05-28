@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 
 const app: express.Application = express();
 
-const conexao = new Conexao('localhost', 3306, 'root', 'root', 'bd_projeto');
+const conexao = new Conexao('localhost', 3306, 'root', '', 'bd_projeto');
 
 app.use(cors());
 app.use(bodyParser.json());
