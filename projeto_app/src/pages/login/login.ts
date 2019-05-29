@@ -14,7 +14,7 @@ export class LoginPage {
   user:string;
   password:string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private logon : LoginProvider) {
+  constructor(public navCtrl: NavController, private logon: LoginProvider) {
   }
 
   ionViewDidLoad() {
