@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 //import { Toasted } from '../../providers/toast/toast';
 import { LoginProvider } from '../../providers/login/login';
-import { ListaOsPage } from '../lista-os/lista-os';
+import { DashboardPage } from '../dashboard/dashboard';
 
 @IonicPage()
 @Component({
@@ -30,10 +30,9 @@ export class LoginPage {
       (data : any) => {
         console.log('Data', data);
         if(data.status === 200 && data.results.length > 0) {
-          this.navCtrl.push(ListaOsPage);
+          this.navCtrl.push(DashboardPage);
         } else {
-          alert('deu ruim')
-          alert(data.message);
+          alert('Login ou senhas incorretos.')
         }
       },
     )

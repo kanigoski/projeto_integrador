@@ -13,4 +13,9 @@ export class ListaOsProvider {
     return this.httpProvider.get();
   }
 
+  getServicesOrderById(id) {
+    this.httpProvider.url = `http://localhost:3000/ordem/${id}`;
+    return this.httpProvider.get();
+  }
+
 }

@@ -28,7 +28,7 @@
             </ion-item>
           </ion-list>
         <ion-list>
-          <button ion-item *ngFor="let item of listOrderService" (click)="openModal()">
+          <button ion-item *ngFor="let item of listOrderService" (click)="openModal(item)">
             <ion-icon name="paper" item-start></ion-icon>
             {{ item.idOrdemServico }} - {{item.titulo}}<br>
             <small>{{ item.setor }}</small>

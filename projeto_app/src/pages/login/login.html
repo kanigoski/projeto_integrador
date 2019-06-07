@@ -6,9 +6,11 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title class="text-title">Login</ion-title>
+    <ion-title class="text-title"></ion-title>
   </ion-navbar>
 </ion-header>
+
+
 <ion-content>
   <ion-grid>
     <ion-row no-padding justify-content-center>
@@ -29,13 +31,13 @@
           </ion-item>
           <ion-item>
             <ion-label>Lembrar senha</ion-label>
-            <ion-checkbox color="primary" checked="true"></ion-checkbox>
+            <ion-checkbox color="principal" checked="true"></ion-checkbox>
           </ion-item>
         </ion-list>
       </ion-col>
     </ion-row>
   </ion-grid>
     <div padding>
-      <button ion-button color="secondary" class="botaoLogin" outline (click)="login()">Entrar</button>
+      <button ion-button color="principal" class="botaoLogin"  (click)="login()">Entrar</button>
     </div>
 </ion-content>

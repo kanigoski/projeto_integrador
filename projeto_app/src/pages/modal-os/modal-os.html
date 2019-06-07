@@ -15,5 +15,52 @@
 </ion-header>
 
 <ion-content padding>
+
+   
+
+  <ion-slides pager>
+
+    <ion-slide style="background-color: white">
+
+        <ion-list *ngFor="let item of informationOS">
+              <ion-list-header>
+                  Título: {{item.titulo}}
+              </ion-list-header>
+              <ion-item>Emissão:   {{item.dataEmissaoOs}}</ion-item>
+              <ion-item>Inicio:    {{item.dataInicio}}</ion-item>
+              <ion-item>Conclusão: {{item.dataFim}}</ion-item>
+              <ion-item>Descrição: {{item.descricao}}</ion-item>
+              <ion-item>Usuario:   {{item.idUsuario}}</ion-item>
+
+              <ion-list-header>
+                  Maquina: {{item.idmaquina}}
+              </ion-list-header>
+              <ion-item>Parada:   {{item.parada}}</ion-item>
+              <ion-list-header>
+                  Prioridade: {{item.prioridade}}
+              </ion-list-header>
+              <ion-item>Status:     {{item.status}}</ion-item>
+              <ion-item>Manutenção: {{item.tipoManutencao}}</ion-item>
+            </ion-list>
+        <div></div>
+
+    </ion-slide>
   
+    <ion-slide style="background-color: white">
+      <h2>Slide 2</h2>
+    </ion-slide>
+  
+    <ion-slide style="background-color: white">
+      <h2>Slide 3</h2>
+    </ion-slide>
+  
+    </ion-slides>
+
+    <ion-tabs>
+        <ion-tab tabIcon="compass" [root]="tab2">TAB 1</ion-tab>
+    </ion-tabs>
+
 </ion-content>
+
+
+
