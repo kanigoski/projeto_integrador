@@ -21,4 +21,13 @@ export class LoginService {
     return this.http.post('http://192.168.15.168:3000/login', obj )
       .map((res : Response) => res.json());
   }
+
+  public setNewHash(hash: string) {
+    let obj = {
+      hash: hash
+    };
+
+    return this.http.post('http://192.168.15.168:3000/newHash', obj )
+      .map((res : Response) => res.json());
+  }
 }

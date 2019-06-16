@@ -15,6 +15,8 @@ import { ListaServicoService } from './provider/lista-servico/lista-servico.serv
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpModule} from '@angular/http';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
@@ -30,7 +32,8 @@ import { CommonModule } from '@angular/common';
     HttpModule,
     FormsModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    IonicStorageModule.forRoot(),
   ],
   providers: [
     StatusBar,
