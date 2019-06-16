@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Serviços</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-item>
+    <ion-label>Situação</ion-label>
+    <ion-select [(ngModel)]="valueSituacao" (ionChange)="updateSituacao(valueSituacao)" value="1" okText="OK" cancelText="Cancelar">
+      <ion-select-option value="1">Em Aberto</ion-select-option>
+      <ion-select-option value="2">Em Andamento</ion-select-option>
+      <ion-select-option value="3">Finalizado</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-list>
+    <ion-item lines="full" *ngFor="let item of listOrder" (click)="navigation(item)">
+      <ion-label text-wrap>
+        <ion-text color="primary">
+          <h3>{{ item.codigo }} - {{ item.titulo }}</h3>
+        </ion-text>
+        <p>Local: {{ item.local }}</p>
+      </ion-label>
+      <ion-icon name="arrow-dropright"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

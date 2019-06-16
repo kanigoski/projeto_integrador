@@ -5,7 +5,7 @@ var Conexao = require('./config');
 var cors = require("cors");
 var bodyParser = require("body-parser");
 var app = express();
-var conexao = new Conexao('localhost', 3306, 'root', '', 'bd_projeto');
+var conexao = new Conexao('http://192.168.15.168', 3306, 'root', '', 'projeto_integrador');
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extend: true }));

@@ -1,5 +1,22 @@
 <ion-content>
-  <ion-grid>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div padding>
+      <ion-item>
+        <ion-label position="floating">Usuário</ion-label>
+        <ion-input formControlName="user"></ion-input>
+      </ion-item>
+    </div>
+    <div padding>
+      <ion-item>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+    </div>
+    <div padding>
+      <ion-button type="submit" expand="block" fill="outline" color="secundary">entrar</ion-button>
+    </div>
+  </form>
+  <!-- <ion-grid>
     <ion-row no-padding justify-content-center>
       <ion-col col-6 text-center>
         <img class="img-logo" src="../../assets/imgs/2rodas.png">
@@ -23,8 +40,5 @@
         </ion-list>
       </ion-col>
     </ion-row>
-  </ion-grid>
-  <div padding>
-    <button ion-button color="principal" class="botaoLogin"  (click)="login()">Entrar</button>
-  </div>
+  </ion-grid> -->
 </ion-content>

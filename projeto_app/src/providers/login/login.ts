@@ -2,9 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpProvider } from '../http/http';
 
-
-
-
 /*
   Generated class for the LoginProvider provider.
 
@@ -23,8 +20,7 @@ export class LoginProvider {
       password : password,
     };
 
-    this.httpProvider.url = 'http://localhost:3000/login';
+    this.httpProvider.url = 'http://192.168.15.168:3000/login';
     return this.httpProvider.post(obj);
   }
-
 }
