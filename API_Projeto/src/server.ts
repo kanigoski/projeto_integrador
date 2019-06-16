@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 
 const app: express.Application = express();
 
-const conexao = new Conexao('localhost', 3306, 'root', 'root', 'bd_projeto');
+const conexao = new Conexao('localhost', 3306, 'root', '', 'projeto_integrador');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extend: true }));
 const port: number = 3000;
 
 app.post('/login', (req: any, res: any) => {
+    console.log('Req', req);
     const user = req.body.user;
     const password = req.body.password; 
     
@@ -25,15 +26,16 @@ app.post('/login', (req: any, res: any) => {
     }
 });
 
-app.get('/ordem', (req: any, res:any) => {
+app.get('/ordem/:codigo', (req: any, res:any) => {
+    const value = req.params.codigo;
     try {
-        conexao.getAllServiceOrder(res);
+        conexao.getAllServiceOrder(res, value);
     } catch (error) {
         console.log('Erro ao obter Ordens de Serviço', error);
     }
 });
 
-app.get('/ordem/:codigo', (req: any, res:any) => {
+app.get('/ordem/servico/:codigo', (req: any, res:any) => {
     const codigo = req.params.codigo;
 
     try {

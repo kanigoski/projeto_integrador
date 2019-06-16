@@ -27,6 +27,8 @@ class Conexao {
     }
 
     public execSQLQuery(sqlQuery: String, res: any) {
+        console.log('Executando', sqlQuery);
+
         const connection = mysql.createConnection({
             host: this.host,
             port: this.port,
@@ -51,19 +53,23 @@ class Conexao {
         });
     }
 
-    public getAllServiceOrder(res: any) {
+    public getAllServiceOrder(res: any, code: Number) {
         return this.execSQLQuery(`
             SELECT 
-                *
-            FROM ordemservico`, res);
+                id_ordem_servico,
+                codigo,
+                titulo,
+                local
+            FROM ordem_servico
+            WHERE situacao = ${code}`, res);
     };
 
     public getByIdServiceOrder(res: any, code: Number) {
         return this.execSQLQuery(`
             SELECT
                 *
-            FROM ordemservico
-            WHERE idOrdemServico = ${code}`, res);
+            FROM ordem_servico
+            WHERE id_ordem_servico = ${code}`, res);
     };
 
     public getUser(res: any, user: String, password: String) {

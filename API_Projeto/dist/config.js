@@ -22,6 +22,7 @@ var Conexao = /** @class */ (function () {
             return 'Campo <DataBase> não definida';
     };
     Conexao.prototype.execSQLQuery = function (sqlQuery, res) {
+        console.log('Executando', sqlQuery);
         var connection = mysql.createConnection({
             host: this.host,
             port: this.port,
@@ -45,12 +46,12 @@ var Conexao = /** @class */ (function () {
             }
         });
     };
-    Conexao.prototype.getAllServiceOrder = function (res) {
-        return this.execSQLQuery("\n            SELECT \n                *\n            FROM ordemservico", res);
+    Conexao.prototype.getAllServiceOrder = function (res, code) {
+        return this.execSQLQuery("\n            SELECT \n                id_ordem_servico,\n                codigo,\n                titulo,\n                local\n            FROM ordem_servico\n            WHERE situacao = " + code, res);
     };
     ;
     Conexao.prototype.getByIdServiceOrder = function (res, code) {
-        return this.execSQLQuery("\n            SELECT\n                *\n            FROM ordemservico\n            WHERE idOrdemServico = " + code, res);
+        return this.execSQLQuery("\n            SELECT\n                *\n            FROM ordem_servico\n            WHERE id_ordem_servico = " + code, res);
     };
     ;
     Conexao.prototype.getUser = function (res, user, password) {
