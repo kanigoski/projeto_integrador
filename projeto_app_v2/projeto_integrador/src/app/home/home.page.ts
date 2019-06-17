@@ -30,14 +30,9 @@ export class HomePage {
   login() {
     if (!this.loginForm.invalid) {
       this.logon.singIn(this.loginForm.value.user, this.loginForm.value.password).subscribe((result) => {
-        // if(result.results.length > 0) {
-        //   const newHash = uuid();
-        //   this.storage.set('hash', newHash);
-        //   this.logon.setNewHash(newHash).subscribe((result) => {
-            if (result.results.length > 0) {
-              this.router.navigateByUrl('/menu');
-        //  }
-        //});
+        console.log('Result', result);
+        if (result.results.length > 0) {
+          this.router.navigateByUrl('/menu');
         }
       });
     }

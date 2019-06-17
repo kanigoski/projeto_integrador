@@ -15,7 +15,7 @@ export class ListaServicoService {
     const obj = {
       situacao : situacao,
     }
-    return this.http.get(`http://192.168.15.168:3000/ordem/${situacao}` )
+    return this.http.get(`http://localhost:3000/ordem/${situacao}` )
       .map((res : Response) => res.json());
   }
 
@@ -23,7 +23,7 @@ export class ListaServicoService {
     const obj = {
       codigo : codigo,
     }
-    return this.http.get(`http://192.168.15.168:3000/ordem/servico/${codigo}` )
+    return this.http.get(`http://localhost:3000/ordem/servico/${codigo}` )
       .map((res : Response) => res.json());
   }
 }

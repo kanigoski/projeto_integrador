@@ -18,7 +18,7 @@ export class LoginService {
       password : password,
     };
 
-    return this.http.post('http://192.168.15.168:3000/login', obj )
+    return this.http.post('http://localhost:3000/login', obj )
       .map((res : Response) => res.json());
   }
 
@@ -27,7 +27,7 @@ export class LoginService {
       hash: hash
     };
 
-    return this.http.post('http://192.168.15.168:3000/newHash', obj )
+    return this.http.post('http://localhost:3000/newHash', obj )
       .map((res : Response) => res.json());
   }
 }
