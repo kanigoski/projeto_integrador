@@ -13,7 +13,9 @@ import { HttpProvider } from '../providers/http/http';
 import { LoginPage } from '../pages/login/login';
 import { ListaOsPage } from '../pages/lista-os/lista-os';
 import { ModalOsPage } from '../pages/modal-os/modal-os';
+import { DashboardPage } from '../pages/dashboard/dashboard';
 import { ListaOsProvider } from '../providers/lista-os/lista-os';
+import { TabSecundarioPage } from '../pages//tab-secundario/tab-secundario';
 import { HttpModule } from '@angular/http';
 //import { ToastProvider } from '../providers/toast/toast';
 
@@ -24,7 +26,9 @@ import { HttpModule } from '@angular/http';
     ListPage,
     LoginPage,
     ListaOsPage,
-    ModalOsPage
+    ModalOsPage,
+    DashboardPage,
+    TabSecundarioPage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,9 @@ import { HttpModule } from '@angular/http';
     ListPage,
     LoginPage,
     ListaOsPage,
-    ModalOsPage
+    ModalOsPage,
+    DashboardPage,
+    TabSecundarioPage
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar  *ngFor="let item of serviceValue">
+    <ion-title>Ordem: {{ item.codigo }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngFor="let item of serviceValue">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+            <ion-card-header>
+              <ion-slides pager="true" [options]="slideOpts">
+                <ion-slide>
+                  Local de instalação: {{ item.local }}
+                </ion-slide>
+                <ion-slide>
+                  <h1>Slide 2</h1>
+                </ion-slide>
+                <ion-slide>
+                  <h1>Slide 3</h1>
+                </ion-slide>
+              </ion-slides>
+            </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="dark">
+      <ion-icon name="arrow-dropleft"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button color="danger"><ion-icon name="close"></ion-icon></ion-fab-button>
+      <ion-fab-button color="success"><ion-icon name="checkmark"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

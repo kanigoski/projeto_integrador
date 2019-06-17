@@ -20,11 +20,12 @@ export class ListaOsPage {
   listOrderService: any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public listOS: ListaOsProvider,public modalCtrl: ModalController) {
+
   }
 
-  openModal() {
+  openModal(item) {
 
-    let profileModal = this.modalCtrl.create(ModalOsPage);
+    let profileModal = this.modalCtrl.create(ModalOsPage, {id: item.idOrdemServico});
     profileModal.present();
 
     profileModal.onDidDismiss(data => {  
