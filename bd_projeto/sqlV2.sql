@@ -37,3 +37,36 @@ CREATE TABLE ordem_servico (
     fim_programado TIMESTAMP NOT NULL,
     data_emissao TIMESTAMP NOT NULL
 );
+
+CREATE TABLE acesso_menu (
+    id_acesso_menu INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    descricao VARCHAR(50) NOT NULL,
+    icone VARCHAR(20) NOT NULL,
+    rota VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE acesso_menu_grupo (
+    id_acesso_menu_grupo INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id_acesso_menu INTEGER NOT NULL,
+    id_grupo INTEGER NOT NULL
+)
+
+CREATE TABLE grupo (
+    id_grupo INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL
+)
+
+CREATE grupo_usuario (
+    id_grupo_usuario INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id_grupo INTEGER NOT NULL,
+    id_usuario INTEGER NOT NULL
+)
+
+SELECT
+
+FROM acesso_menu_grupo
+    INNER JOIN acesso_menu
+        ON acesso_menu.id_acesso_menu = acesso_menu_grupo.id_acesso_menu
+    INNER JOIN grupo
+        ON grupo.id_grupo = acesso_menu_grupo.id_grupo
+WHERE grupo.id_grupo = 1

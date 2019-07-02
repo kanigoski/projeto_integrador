@@ -32,7 +32,7 @@ export class ListaServicoPage implements OnInit {
   }
 
   navigation(item) {
-    this.router.navigateByUrl(`/servico/${item.id_ordem_servico}`);
+    this.router.navigateByUrl(`/tabs/servico/${item.id_ordem_servico}`);
   }
   
   getListService() {

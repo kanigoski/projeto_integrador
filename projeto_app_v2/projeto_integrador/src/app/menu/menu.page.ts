@@ -11,6 +11,11 @@ export class MenuPage implements OnInit {
   constructor(public router: Router) { }
 
   ngOnInit() {
+    this.loadMenu();
+  }
+
+  loadMenu() {
+
   }
 
   menuNavigate(value) {

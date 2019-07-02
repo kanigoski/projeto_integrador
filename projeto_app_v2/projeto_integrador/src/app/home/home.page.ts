@@ -4,6 +4,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { v4 as uuid } from 'uuid';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-home',
@@ -33,6 +34,12 @@ export class HomePage {
         console.log('Result', result);
         if (result.results.length > 0) {
           this.router.navigateByUrl('/menu');
+        } else {
+          Swal.fire({
+            type: 'error',
+            title: 'Oops...',
+            text: 'Usuário ou Senha Incorreto!'
+          })
         }
       });
     }

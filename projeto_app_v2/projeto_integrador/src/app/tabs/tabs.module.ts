@@ -7,15 +7,15 @@ import { IonicModule } from '@ionic/angular';
 
 import { TabsPage } from './tabs.page';
 
-
 const routes: Routes = [
   {
     path: '',
     component: TabsPage,
     children:[
-      { path: 'epis', loadChildren: '../epis/epis.module#EpisPageModule' },
-      { path: 'ferramentas', loadChildren: '../ferramentas/ferramentas.module#FerramentasPageModule' },
-      { path: 'historico', loadChildren: '../historico/historico.module#HistoricoPageModule' }
+      { path: 'servico/:id', loadChildren: '../ordem-servico/ordem-servico.module#OrdemServicoPageModule' },
+      { path: 'epis/:id', loadChildren: '../epis/epis.module#EpisPageModule' },
+      { path: 'ferramentas/:id', loadChildren: '../ferramentas/ferramentas.module#FerramentasPageModule' },
+      { path: 'historico/:id', loadChildren: '../historico/historico.module#HistoricoPageModule' }
   ]
   }
 ];

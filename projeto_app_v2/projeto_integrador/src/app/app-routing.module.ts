@@ -11,7 +11,6 @@ const routes: Routes = [
     // canActivate: [AuthGuard]
   },
   { path: 'servicos', loadChildren: './lista-servico/lista-servico.module#ListaServicoPageModule' },
-  { path: 'servico/:id', loadChildren: './ordem-servico/ordem-servico.module#OrdemServicoPageModule' },
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
 
  

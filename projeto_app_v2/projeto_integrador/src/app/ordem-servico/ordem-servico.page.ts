@@ -25,6 +25,7 @@ export class OrdemServicoPage implements OnInit {
 
   getServiceOrder() {
     this.services.getServiceOrdem(this.codeOrdem).subscribe((result) => {
+      console.log('Result', result.results);
       this.serviceValue = result.results;
     });
   }
