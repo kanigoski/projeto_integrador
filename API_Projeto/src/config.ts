@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const Sequelize = require('sequelize');
 
 class Conexao {
     private host: String;
@@ -16,6 +17,11 @@ class Conexao {
         this.dataBase = dataBase;
 
         const validate = this.validateParams();
+
+        const sequelize = new Sequelize(this.dataBase, this.user, this.password, {
+            host: this.host,
+            dialect: 'mysql'
+        });
     }
 
     private validateParams() {
@@ -73,6 +79,15 @@ class Conexao {
     };
 
     public getUser(res: any, user: String, password: String) {
+        const Model = Sequelize.Model;
+        class Usuario extends Model {}
+
+        Usuario.findAll({
+            where: {
+                authorId: 12,
+                status: 'active'
+            }
+            });
         return this.execSQLQuery(`
             SELECT
                 usuario AS user,
